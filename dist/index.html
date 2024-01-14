@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="header">
-        <div class="toggle-menu"><img class='menu-icon' src="../img/menu_FILL0_wght400_GRAD0_opsz24.png"></div>
+        <div id="toggle-menu"><img class='menu-icon' src="../img/menu_FILL0_wght400_GRAD0_opsz24.png"></div>
         <div class="website-title"><img class='title-png' src="../img/oasis-logo-wip.png">></div>
     </div>
     <div class="all-content">
@@ -17,12 +17,23 @@
     <div class="footer">
         <p>CopyWrite@ME</p>
     </div>
-    <div class ="sidebar">
+    <div id ="sidebar">
         <div id="sidebar-title">
             <img class='folder-icon'src="../img/create_new_folder_FILL0_wght400_GRAD0_opsz24.png">
             <p>Projects</p>
         </div>
     </div>
+    <div id="info-selector">
+        <form action="#" class="container-form">
+            <input class='inputs'type="text" id="title" placeholder="Title">
+            <input class='inputs'type="text" id="description" placeholder="Description">
+            <div class="button-container">
+                <button class='form-button' id="submitBtn">Submit</button>
+                <button class='form-button'id="cancelBtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div id="overlay"></div>
     <script src="./main.js" defer></script>
 </body>
 </html>

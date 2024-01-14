@@ -16,7 +16,7 @@ body {
     align-items: center;
 }
 
-.toggle-menu {
+#toggle-menu {
     background-color: rgb(32, 31, 31);
     height: 50px;
     width: 50px;
@@ -56,9 +56,9 @@ body {
     align-items: center;
 }
 
-.sidebar {
-    display: flex;
-    background-color: rgb(24, 21, 21);
+#sidebar {
+    display: none;
+    background-color: rgb(14, 13, 13);
     z-index: 9;
     height: 750px;
     width: 350px;
@@ -76,9 +76,84 @@ body {
     align-items: center;
     height: 100px;
     border-bottom: 1px solid rgb(17, 17, 17);
+    cursor: pointer;
 }
 
 .folder-icon {
     width: 50px;
     height: 50px;
+}
+
+#info-selector {
+    display: none;
+    background-color: rgb(17, 17, 17);
+    z-index: 10;
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    right: 25%;
+    bottom: 20%;
+    border: solid 2px black;
+    border-radius: 7px;
+}
+
+.container-form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin: 50px;
+}
+
+.form-button {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(209, 209, 209);
+    border: 2px solid rgb(97, 97, 97);
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-button:hover {
+    background-color: rgb(97, 97, 97);
+    color: #fff;
+}
+
+.inputs {
+    width: 70%;
+    height: 50px;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #313131;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    background-color: rgb(56, 56, 56);
+}
+
+/* Add focus styles for better user experience */
+.inputs:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 1; /* Ensure it's on top of other elements */
 }
