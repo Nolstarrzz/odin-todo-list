@@ -3,13 +3,17 @@
 let controlSidebar = false; 
 document.getElementById('toggle-menu').addEventListener('click', () => {
     let sidebar = document.getElementById('sidebar');
+    let body = document.body;
+
     if(controlSidebar === false)
     {
+        body.classList.add('sidebar-visible');
         sidebar.style.display = 'flex';
         controlSidebar = true;
     }
     else if(controlSidebar === true)
     {
+        body.classList.remove('sidebar-visible');
         sidebar.style.display = 'none';
         controlSidebar = false;
     }
@@ -132,3 +136,11 @@ class folder {
 
 //<--
 
+
+//--> Changes the main page
+
+function changePage(folder) {
+
+}
+
+//<--
