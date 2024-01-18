@@ -18,6 +18,8 @@ document.getElementById('toggle-menu').addEventListener('click', () => {
 
 // get values-->
 let overlay = document.getElementById('overlay');
+
+
 function getValues(event) {
     event.preventDefault();
   
@@ -30,10 +32,44 @@ function getValues(event) {
       alert("Please fill out all required fields.");
       return;
     }
-  
+    
+    addFolder(title, description)
+    loopFolders()
     //method to make a folder call(title, description);
     form.style.display = 'none';
     cancelForm() 
+}
+
+function loopFolders() {
+    resetFolders()
+    for (const folder of folders) {
+      makeFolder(folder)
+    }
+}
+
+function removeFolder(folderIndex)
+{
+    if(folders.length === 1)
+    {
+        alert("there is only one folder")
+        console.log(folders.length)
+        console.log(folders)
+        return
+    }
+    else if(folderIndex !== -1){
+        folders.splice(folderIndex, 1);
+    }
+}
+
+function resetFolders() 
+{
+    let folderArea = document.getElementById('folders')
+    folderArea.innerHTML = '';
+}
+
+function addFolder(title, description) {
+    const newFolder = new folder(title, description)
+    folders.push(newFolder)
 }
 
 function cancelForm() {
@@ -53,6 +89,46 @@ document.getElementById('sidebar-title').addEventListener('click', () => {
     overlay.style.display = 'block';
 });
 
-//make a way to turn the form on, then so it cancels any other clicks on the page
+//<--
+
+// Make the folders/todos--> 
+let folders = [];
+
+function makeFolder(folder) {
+    let folderArea = document.getElementById('folders')
+    const project = document.createElement('div')
+    project.classList.add('folder')
+    const title = document.createElement('p')
+    title.textContent = folder.title;
+    const trashButton = document.createElement('img')
+    trashButton.src = '../img/deleteButton.png';
+    
+    trashButton.addEventListener('click', () => {
+        removeFolder(folders.indexOf(folder));
+        loopFolders()
+    });
+
+    project.addEventListener('click', () => {
+        //changePage(idk not made)
+    });
+
+    //get an icon, append stuff, this only works for the sidebar stuff, if using
+    //description, need to change in some way
+    folderArea.appendChild(project)
+    project.appendChild(title)
+    project.appendChild(trashButton)
+}
+
+class folder {
+    constructor(title, description) {
+      this.title = title;
+      this.description = description;
+    }
+    info() {
+      return `${this.title}, ${this.description}`;
+    }
+}
+
+
 //<--
 
