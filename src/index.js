@@ -102,6 +102,7 @@ function makeFolder(folder) {
     let folderArea = document.getElementById('folders')
     const project = document.createElement('div')
     project.classList.add('folder')
+    project.classList.add('color')
     const title = document.createElement('p')
     title.textContent = folder.title;
     const trashButton = document.createElement('img')
@@ -127,6 +128,7 @@ class folder {
     constructor(title, description) {
       this.title = title;
       this.description = description;
+      this.todoList = [];
     }
     info() {
       return `${this.title}, ${this.description}`;
@@ -140,6 +142,19 @@ class folder {
 //--> Changes the main page
 
 function changePage(folder) {
+ /* 
+    need to get index of the folder
+    need to get the title and discription from folder class needed
+    change it then display it
+    change class to active
+    keep all the todos still **** DONT DELETE THEM 
+    display all the info
+ */
+    buildPage(folder)
+    document.querySelectorAll('.folder').forEach((f) => {
+        f.classList.remove('active');
+    });
+    folder.element.classList.add('active');
 
 }
 
